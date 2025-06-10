@@ -20,7 +20,14 @@ const userSchema = new Schema(
     },
     password: {
       type: String,
-      required: [true, "Password is required."],
+      required: function(){
+        return !this.googleId;
+      },
+    },
+    googleId: {
+      type: String,
+      unique: true,
+      sparse: true, // allow null values
     },
     avatarUrl: {
       type: String,
@@ -34,7 +41,7 @@ const userSchema = new Schema(
     },
     type: {
       type: String,
-      required: true,
+      default:"user"
     },
     bio: {
       type: String,
