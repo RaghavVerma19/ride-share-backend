@@ -1,3 +1,4 @@
+import ws from "./ws/wsServer.js";
 import connectDB from "../db/connect.js";
 import dotenv from "dotenv";
 import { httpServer, app } from "./app.js";

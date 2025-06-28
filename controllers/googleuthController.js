@@ -27,7 +27,7 @@ const handleGoogleLogin = async (req, res) => {
       const options = {
         httpOnly: true,
         secure: process.env.NODE_ENV === "production",
-        maxAge: 30 * 24 * 60 * 60 * 1000, // 30 days
+        maxAge: 30 * 24 * 60 * 60 * 1000, 
       };
       res.cookie("refreshToken", refreshToken, options);
       res.cookie("accessToken", accessToken, options);
@@ -39,7 +39,7 @@ const handleGoogleLogin = async (req, res) => {
           fullName: createdUser.fullName,
           userName: createdUser.userName,
           email: createdUser.email,
-          avatarUrl: image,
+          avatarUrl: createdUser.avatarUrl,
         },
       });
     } else {
@@ -48,7 +48,7 @@ const handleGoogleLogin = async (req, res) => {
       const options = {
         httpOnly: true,
         secure: process.env.NODE_ENV === "production",
-        maxAge: 30 * 24 * 60 * 60 * 1000, // 30 days
+        maxAge: 30 * 24 * 60 * 60 * 1000, 
       };
       res.cookie("refreshToken", refreshToken, options);
       res.cookie("accessToken", accessToken, options);
@@ -60,7 +60,7 @@ const handleGoogleLogin = async (req, res) => {
           fullName: existingUser.fullName,
           userName: existingUser.userName,
           email: existingUser.email,
-          avatarUrl: image,
+          avatarUrl: existingUser.avatarUrl,
         },
       });
     }
