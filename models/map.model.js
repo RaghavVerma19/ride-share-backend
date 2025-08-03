@@ -21,6 +21,10 @@ const mapSchema = new mongoose.Schema(
       ref: "User",
       required: true,
     },
+    zones: {
+      type: Array,
+      default: [""],
+    },
   },
   {
     timestamps: true,

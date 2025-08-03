@@ -155,10 +155,7 @@ const updateCurrentUser = asyncHandler(async (req, res) => {
     .json(new ApiResponse(200, { user }, "User updated successfully."));
 });
 const getAllUsers = async (req, res) => {
-  if(req.user?.type !== "admin"){
-    throw new ApiError(401,"Unauthorized request.");
-  }
-  const users = await User.find().select("-password -refreshToken");
+  const users = await User.find({ _id: { $ne: req.user._id } }).select("-password -refreshToken");
   return res
     .status(200)
     .json(new ApiResponse(200, users, "Users fetched successfully."));

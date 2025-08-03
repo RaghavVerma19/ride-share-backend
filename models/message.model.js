@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
 import { User } from "./user.model.js";
 const messageSchema = mongoose.Schema({
-  room: {
+  type: {
     type: String,
     enum: ["global", "zone", "dm"],
     required: true,
@@ -10,6 +10,12 @@ const messageSchema = mongoose.Schema({
   senderId: {
     type: String,
     required: true,
+  },
+  recipientId: {
+    type: String,
+    required: function () {
+      return this.room === "dm";
+    }, // Required only for DM messages
   },
   text: {
     type: String,
