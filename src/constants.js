@@ -1,2 +1,2 @@
-const DBName = "twoDGame";
+const DBName = "ride-sharing";
 export { DBName };

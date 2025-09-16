@@ -6,6 +6,9 @@ import currentUserRouter from "./getCurrentUser.js";
 import googleAuthRouter from "./googleAuthRoute.js";
 import logoutRouter from "./logoutRoute.js";
 import chatHistoryRoute from "./chatHistoryRoute.js";
+import rideRouter from "./rideRoute.js";
+import refreshTokenRouter from "./refreshTokenRoute.js";
+
 export {
   homeRouter,
   loginRouter,
@@ -15,4 +18,6 @@ export {
   googleAuthRouter,
   logoutRouter,
   chatHistoryRoute,
+  rideRouter,
+  refreshTokenRouter,
 };

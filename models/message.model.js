@@ -1,21 +1,13 @@
 import mongoose from "mongoose";
 import { User } from "./user.model.js";
 const messageSchema = mongoose.Schema({
-  type: {
-    type: String,
-    enum: ["global", "zone", "dm"],
-    required: true,
-    index: true,
+  sender: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "User",
   },
-  senderId: {
-    type: String,
-    required: true,
-  },
-  recipientId: {
-    type: String,
-    required: function () {
-      return this.room === "dm";
-    }, // Required only for DM messages
+  receiver: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "User",
   },
   text: {
     type: String,

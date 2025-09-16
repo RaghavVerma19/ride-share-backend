@@ -3,7 +3,7 @@ import { loginUser } from "../controllers/userController.js";
 import asyncHandler from "../utils/asyncHandler.js";
 const loginRouter = express.Router();
 
-loginRouter.post("/api/login", 
+loginRouter.post("/api/auth/login", 
   asyncHandler(loginUser)
 );
 

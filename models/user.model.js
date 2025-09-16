@@ -5,13 +5,6 @@ import jwt from "jsonwebtoken";
 
 const userSchema = new Schema(
   {
-    userName: {
-      type: String,
-      unique: true,
-      required: true,
-      index: true,
-      trim: true,
-    },
     fullName: {
       type: String,
       required: true,
@@ -62,6 +55,12 @@ const userSchema = new Schema(
       {
         type: mongoose.Schema.Types.ObjectId,
         ref: "User",
+      },
+    ],
+    rides: [
+      {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Ride",
       },
     ],
   },

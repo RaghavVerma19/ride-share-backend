@@ -1,14 +1,11 @@
-import ws from "./ws/wsServer.js";
 import connectDB from "../db/connect.js";
-import dotenv from "dotenv";
-import { httpServer, app } from "./app.js";
 
-dotenv.config({
-  path: "./.env",
-});
+import { httpServer, app } from "./app.js";
+import "./ws/wsServer.js";
+
 connectDB()
   .then(() => {
-    httpServer.listen(app.get("port"),"0.0.0.0", () => {
+    httpServer.listen(app.get("port"), "0.0.0.0", () => {
       console.log(`Server running on port : ${app.get("port")}`);
     });
   })
